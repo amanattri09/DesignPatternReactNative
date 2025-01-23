@@ -16,14 +16,11 @@ export default function ProviderPatternMainScreen() {
     setTheme(appearance == 'dark' ? 'light' : 'dark');
   };
 
-  const textThemeStyle = useThemeStyle<TextStyle>(
-    theme => ({
-      fontSize: theme.typography.text.sizes.large,
-      color: theme.colors.textPrimary,
-      alignSelf : 'center'
-    }),
-    [theme],
-  );
+  const textThemeStyle = useThemeStyle<TextStyle>(theme => ({
+    fontSize: theme.typography.text.sizes.large,
+    color: theme.colors.textPrimary,
+    alignSelf: 'center',
+  }));
 
   return (
     <SafeAreaView style={{flex: 1}}>

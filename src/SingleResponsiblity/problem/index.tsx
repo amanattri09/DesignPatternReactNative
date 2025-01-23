@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {ActivityIndicator, Text} from 'react-native';
+import {ActivityIndicator, SafeAreaView, Text} from 'react-native';
 import {Post} from '../types';
 
 const URL = 'https://jsonplaceholder.typicode.com/posts';
@@ -24,12 +24,16 @@ const UserContainer = () => {
     fetchData();
   }, []);
 
-  return isLoading ? (
-    <ActivityIndicator />
-  ) : (
-    posts.map(post => {
-      return <Text key={post.id}>{post.title}</Text>;
-    })
+  return (
+    <SafeAreaView>
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+        posts.map(post => {
+          return <Text key={post.id}>{post.title}</Text>;
+        })
+      )}
+    </SafeAreaView>
   );
 };
 
