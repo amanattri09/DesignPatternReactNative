@@ -8,9 +8,7 @@ const AppStorage = () => {
 };
 
 async function saveToAsyncStorage(key: string, value: string) {
-  console.log(`came for storing data ${value}`);
   await AsyncStorage.setItem(key, value);
-  console.log(`came for retreving data ${await AsyncStorage.getItem(key)}`);
 }
 
 async function readFromAsyncStorage(key: string) {
