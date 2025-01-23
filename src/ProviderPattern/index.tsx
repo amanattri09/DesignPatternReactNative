@@ -1,28 +1,47 @@
-import {Appearance, Button, SafeAreaView, Text, TextStyle} from 'react-native';
+import {
+  Button,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextStyle,
+  View,
+} from 'react-native';
 import useThemeStyle from './theme/use-theme-style';
 import Page from './components/page';
 import useTheme from './theme/use-theme';
 
 export default function ProviderPatternMainScreen() {
-  const {theme, setTheme} = useTheme();
+  const {theme, setTheme, appearance} = useTheme();
   const changeTheme = () => {
-    setTheme('light');
+    setTheme(appearance == 'dark' ? 'light' : 'dark');
   };
 
   const textThemeStyle = useThemeStyle<TextStyle>(
     theme => ({
       fontSize: theme.typography.text.sizes.large,
       color: theme.colors.textPrimary,
+      alignSelf : 'center'
     }),
     [theme],
   );
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1}}>
       <Page>
-        <Text style={textThemeStyle}>just testing</Text>
-        <Button title="Change Theme" onPress={changeTheme}></Button>
+        <Text style={textThemeStyle}>Home Screen </Text>
+        <View style={styles.buttonStyle}>
+          <Button title="Change Theme" onPress={changeTheme}></Button>
+        </View>
       </Page>
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  text: {
+    alignSelf: 'center',
+  },
+  buttonStyle: {
+    marginTop: 16,
+  },
+});
