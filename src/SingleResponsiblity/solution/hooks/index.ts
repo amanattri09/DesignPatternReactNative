@@ -1,14 +1,15 @@
 import {useEffect, useState} from 'react';
 import {Post} from '../../types';
 
+const URL = 'https://jsonplaceholder.typicode.com/posts';
+
 export const useUsers = () => {
   const [posts, setPosts] = useState(Array<Post>);
   const [isLoading, setIsLoading] = useState(false);
-  const url = 'https://jsonplaceholder.typicode.com/posts';
 
   const fetchData = () => {
     setIsLoading(true);
-    fetch(url)
+    fetch(URL)
       .then(response => {
         return response.json();
       })

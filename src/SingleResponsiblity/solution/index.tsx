@@ -1,6 +1,6 @@
 import {useUsers} from './hooks';
 import PostComponent from './components/PostComponent';
-import LoadingView from './components/loadingview';
+import LoadingView from './components/LoadingView';
 
 const UserContainer = () => {
   const {posts, isLoading} = useUsers();

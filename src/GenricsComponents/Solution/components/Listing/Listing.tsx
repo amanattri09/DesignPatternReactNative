@@ -1,4 +1,4 @@
-import {Text, View} from 'react-native';
+import {Text} from 'react-native';
 
 type ListingProps<T> = {
   items: T[];

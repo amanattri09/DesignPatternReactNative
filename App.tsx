@@ -5,10 +5,15 @@
  * @format
  */
 
-import HOCMainScreen from './src/HighOrderComponent';
+import ProviderPatternMainScreen from './src/ProviderPattern';
+import ThemeContextProvider from './src/ProviderPattern/theme/ThemeContextProvider';
 
 function App(): JSX.Element {
-  return <HOCMainScreen />;
+  return (
+    <ThemeContextProvider>
+      <ProviderPatternMainScreen />
+    </ThemeContextProvider>
+  );
 }
 
 export default App;

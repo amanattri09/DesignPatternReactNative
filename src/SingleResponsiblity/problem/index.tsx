@@ -2,15 +2,15 @@ import {useEffect, useState} from 'react';
 import {ActivityIndicator, Text} from 'react-native';
 import {Post} from '../types';
 
+const URL = 'https://jsonplaceholder.typicode.com/posts';
+
 const UserContainer = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [posts, setPosts] = useState(Array<Post>);
 
-  const url = 'https://jsonplaceholder.typicode.com/posts';
-
   const fetchData = () => {
     setIsLoading(true);
-    fetch(url)
+    fetch(URL)
       .then(response => {
         return response.json();
       })
